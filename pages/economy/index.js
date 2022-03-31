@@ -93,6 +93,9 @@ export default function Expenses() {
         // setInputValue(event.target?.value);
     }
 
+    // TODO send POST method to change input data in database
+    const timeoutFunction = () => new Promise((resolve) => setTimeout(resolve, 1000))
+
     const handleModalOption = (optionSelected) => {
         const index = filterOptionsSelected.indexOf(optionSelected);
 
@@ -124,27 +127,33 @@ export default function Expenses() {
                     <div className={`expense-row ${index %2 && 'odd-expense-row'}`} key={expense.id}>
                         <SmartInput
                             initialValue={expense.amount}
-                            inputSize={4} // sum total 42
+                            inputSize={4}
+                            onValueModified={timeoutFunction}
                         />
                         <SmartInput
                             initialValue={expense.amount}
                             inputSize={4}
+                            onValueModified={timeoutFunction}
                         />
                         <SmartInput
                             initialValue={expense.amount}
                             inputSize={4}
+                            onValueModified={timeoutFunction}
                         />
                         <SmartInput
                             initialValue={expense.description}
-                            inputSize={13}
+                            inputSize={18}
+                            onValueModified={timeoutFunction}
                         />
                         <SmartInput
                             initialValue={expense.amount}
                             inputSize={4}
+                            onValueModified={timeoutFunction}
                         />
                         <SmartInput
                             initialValue={expense.description}
-                            inputSize={13}
+                            inputSize={18}
+                            onValueModified={timeoutFunction}
                         />
                     </div>
                 )}
